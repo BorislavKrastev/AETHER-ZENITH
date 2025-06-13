@@ -1,1 +1,1 @@
-My game: https://github.com/BorislavKrastev/AETHER-ZENITH
+My game: [https://borislavkrastev.github.io/AETHER-ZENITH/]
