@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AETHER ZENITH - Space Shooter</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts for retro/sci-fi feel -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- UI Overlay -->
+        <div id="ui-overlay">
+            <!-- Main Menu -->
+            <div id="main-menu" class="menu-screen active">
+                <h1>AETHER ZENITH</h1>
+                <p class="subtitle">Ascend the Stellar Abyss.</p>
+                <div class="controls-info">
+                    <p>Controls:</p>
+                    <p>Move: <span class="key-icon">←</span> <span class="key-icon">→</span> or <span class="key-icon">A</span> <span class="key-icon">D</span></p>
+                    <p>Shoot: <span class="key-icon">Spacebar</span></p>
+                    <p>Pause: <span class="key-icon">Esc</span> or <span class="key-icon">P</span></p>
+                </div>
+                <button id="startButton" class="btn primary">START GAME</button>
+                <button id="upgradeButton" class="btn secondary">UPGRADES</button>
+            </div>
+
+            <!-- Game HUD -->
+            <div id="hud">
+                <div class="hud-item">
+                    <span class="hud-label">SCORE:</span>
+                    <span id="score" class="hud-value">0</span>
+                </div>
+                <div class="hud-item">
+                    <span class="hud-label">LEVEL:</span>
+                    <span id="level" class="hud-value">1</span>
+                </div>
+                <div class="hud-item hud-health">
+                    <span class="hud-label">HEALTH:</span>
+                    <div class="health-bar-container">
+                        <div id="healthBar" class="health-bar"></div>
+                    </div>
+                </div>
+                <div class="hud-item hud-weapon-info">
+                    <span class="hud-label">WEAPON:</span>
+                    <span id="weaponName" class="hud-value">Basic</span>
+                </div>
+            </div>
+
+            <!-- Pause Menu -->
+            <div id="pause-menu" class="menu-screen">
+                <h1>PAUSED</h1>
+                <p class="subtitle">Cosmic Drift</p>
+                <button id="resumeButton" class="btn primary">RESUME GAME</button>
+                <button id="restartFromPauseButton" class="btn secondary">RESTART LEVEL</button>
+                <button id="mainMenuFromPauseButton" class="btn secondary">MAIN MENU</button>
+            </div>
+
+            <!-- Game Over Screen -->
+            <div id="game-over-screen" class="menu-screen">
+                <h1>GAME OVER</h1>
+                <p class="score-display">Final Score: <span id="final-score">0</span></p>
+                <p class="level-display">Level Achieved: <span id="level-achieved">1</span></p>
+                <button id="restartButton" class="btn primary">PLAY AGAIN</button>
+                <button id="mainMenuButton" class="btn secondary">MAIN MENU</button>
+            </div>
+
+            <!-- Upgrades Menu -->
+            <div id="upgrade-menu" class="menu-screen">
+                <h1>UPGRADES</h1>
+                <p class="subtitle">Enhance Your Vessel</p>
+                <div class="upgrade-stats">
+                    <p>Credits: <span id="creditsAmount">0</span></p>
+                </div>
+                <div class="upgrade-list">
+                    <div class="upgrade-item">
+                        <span>Hull Reinforcement</span>
+                        <span class="upgrade-level" id="hullLevel">Lv.1</span>
+                        <button class="btn small upgrade-buy-btn" data-upgrade-type="hull" data-cost="500">Upgrade (500 Cr)</button>
+                    </div>
+                    <div class="upgrade-item">
+                        <span>Engine Calibration</span>
+                        <span class="upgrade-level" id="engineLevel">Lv.1</span>
+                        <button class="btn small upgrade-buy-btn" data-upgrade-type="engine" data-cost="750">Upgrade (750 Cr)</button>
+                    </div>
+                    <div class="upgrade-item">
+                        <span>Weapon Systems</span>
+                        <span class="upgrade-level" id="weaponLevel">Lv.1</span>
+                        <button class="btn small upgrade-buy-btn" data-upgrade-type="weapon" data-cost="1000">Upgrade (1000 Cr)</button>
+                    </div>
+                </div>
+                <button id="backToMainMenuButton" class="btn primary">BACK TO MAIN MENU</button>
+            </div>
+
+            <!-- Notifications -->
+            <div id="level-up-notification" class="notification">
+                <span>LEVEL UP!</span>
+            </div>
+            <div id="powerup-notification" class="notification">
+                <span></span>
+            </div>
+            <div id="hit-indicator" class="notification"></div>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
